@@ -1,0 +1,47 @@
+{
+  "entities": {
+    "SalesRecord": {
+      "title": "Sales Record",
+      "description": "A single day's sales record for a specific store and product",
+      "type": "object",
+      "properties": {
+        "date": { "type": "string", "format": "date", "description": "ISO date string" },
+        "storeId": { "type": "string", "description": "Unique identifier for the store" },
+        "productId": { "type": "string", "description": "Unique identifier for the product" },
+        "sales": { "type": "number", "description": "Total sales value" },
+        "promotion": { "type": "number", "description": "Binary: 1 if promotion was active, 0 otherwise" },
+        "holiday": { "type": "number", "description": "Binary: 1 if it was a holiday, 0 otherwise" },
+        "temperature": { "type": "number", "description": "Average temperature on that day" },
+        "fuelPrice": { "type": "number", "description": "Average fuel price in the region" },
+        "cpi": { "type": "number", "description": "Consumer Price Index" },
+        "unemployment": { "type": "number", "description": "Unemployment rate in the region" },
+        "userId": { "type": "string", "description": "ID of the user who owns this record" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["date", "storeId", "productId", "sales", "userId"]
+    },
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Information about the application user",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["email"]
+    }
+  },
+  "firestore": {
+    "/salesRecords/{recordId}": {
+      "schema": "SalesRecord",
+      "description": "Collection of all sales records"
+    },
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile documents"
+    }
+  }
+}

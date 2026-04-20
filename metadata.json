@@ -1,0 +1,6 @@
+{
+  "name": "Remix: Sales Forecasting System",
+  "description": "An end-to-end sales forecasting platform using synthetic data and AI-driven model analysis. Features EDA, model comparison (Linear, Random Forest, XGBoost, LSTM), and interactive predictions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
